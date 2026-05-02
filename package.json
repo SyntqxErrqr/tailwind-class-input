@@ -1,0 +1,79 @@
+{
+  "name": "tailwind-class-input",
+  "version": "0.1.0",
+  "description": "MUI + React Admin autocomplete input for Tailwind CSS class names, with friendly labels, presets, and a live preview component.",
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react-admin": {
+      "import": "./dist/react-admin.esm.js",
+      "require": "./dist/react-admin.js",
+      "types": "./dist/react-admin.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && vite build",
+    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "autocomplete",
+    "mui",
+    "material-ui",
+    "react-admin",
+    "class-input",
+    "react",
+    "friendly-labels",
+    "presets"
+  ],
+  "peerDependencies": {
+    "@mui/material": ">=5.0.0",
+    "@mui/icons-material": ">=5.0.0",
+    "@emotion/react": ">=11.0.0",
+    "@emotion/styled": ">=11.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-admin": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "5.18.0",
+    "@mui/material": "5.18.0",
+    "@storybook/addon-essentials": "^8.2.0",
+    "@storybook/addon-controls": "^8.2.0",
+    "@storybook/addon-actions": "^8.2.0",
+    "@storybook/react": "^8.2.0",
+    "@storybook/react-vite": "^8.2.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "storybook": "^8.2.0",
+    "typescript": "^5.5.3",
+    "vite": "5.3.1",
+    "vite-plugin-dts": "^3.9.1"
+  }
+}
