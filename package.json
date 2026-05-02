@@ -2,7 +2,7 @@
   "name": "tailwind-class-input",
   "version": "0.1.0",
   "description": "MUI + React Admin autocomplete input for Tailwind CSS class names, with friendly labels, presets, and a live preview component.",
-  "author": "",
+  "author": "syntqxerrqr",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
