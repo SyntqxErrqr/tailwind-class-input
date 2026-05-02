@@ -2,6 +2,14 @@
 
 An autocomplete input for Tailwind CSS class names built for **MUI v5** and **React Admin**. Designed for users who may not know CSS — includes human-friendly labels, one-click presets, and a live preview companion component.
 
+# Note from the developer
+
+I started this project because I wanted an input to autocomplete tailwind classes and couldn't find anything that existed for it. This is written entirely by Claude Sonnet 4.6, and if the result didn't turn out well, I would have scrapped it. I don't intend on maintaining it beyond my own personal/business use.
+
+If this project doesn't satisfy your use-case, you're welcome to fork the project and adjust it to your liking.
+
+This was built to be opinionated towards React Admin to be used for the [SpringMicroHost](https://springmicrohost.com) Website Editor. If you happen to be looking for hosting, or business tools (CRM, eCommerce, Forms, & more), don't hesitate to reach out!
+
 ---
 
 ## Features
@@ -36,10 +44,10 @@ npm install @mui/material @mui/icons-material @emotion/react @emotion/styled rea
 ## Quick Start
 
 ```tsx
-import { TailwindClassInput } from 'tailwind-class-input';
+import { TailwindClassInput } from "tailwind-class-input";
 
 function MyForm() {
-  const [classes, setClasses] = React.useState('');
+  const [classes, setClasses] = React.useState("");
 
   return (
     <TailwindClassInput
@@ -107,18 +115,18 @@ Presets are opt-in groups of commonly needed classes, shown as collapsible panel
 
 **Available preset group IDs:**
 
-| ID | Label | Contents |
-|----|-------|----------|
-| `layout` | Layout | flex, grid, hidden, centering combos |
-| `padding` | Padding | p-0 through p-16, px/py variants |
-| `margin` | Margin | m-0 through m-8, mx-auto, mt/mb variants |
-| `width` | Width | w-full, w-1/2, max-w-* |
-| `typography` | Text Size | text-xs through text-5xl |
-| `fontWeight` | Font Weight | thin through black |
-| `textColor` | Text Color | white, black, all brand colors |
-| `bgColor` | Background | transparent, white, black, all colors |
-| `borderRadius` | Corners | none through full/pill |
-| `shadow` | Shadow | none through 2xl + inner |
+| ID             | Label       | Contents                                 |
+| -------------- | ----------- | ---------------------------------------- |
+| `layout`       | Layout      | flex, grid, hidden, centering combos     |
+| `padding`      | Padding     | p-0 through p-16, px/py variants         |
+| `margin`       | Margin      | m-0 through m-8, mx-auto, mt/mb variants |
+| `width`        | Width       | w-full, w-1/2, max-w-\*                  |
+| `typography`   | Text Size   | text-xs through text-5xl                 |
+| `fontWeight`   | Font Weight | thin through black                       |
+| `textColor`    | Text Color  | white, black, all brand colors           |
+| `bgColor`      | Background  | transparent, white, black, all colors    |
+| `borderRadius` | Corners     | none through full/pill                   |
+| `shadow`       | Shadow      | none through 2xl + inner                 |
 
 Active presets are highlighted so users can see what's already applied.
 
@@ -127,10 +135,12 @@ Active presets are highlighted so users can see what's already applied.
 ## With TailwindPreview
 
 ```tsx
-import { TailwindClassInput, TailwindPreview } from 'tailwind-class-input';
+import { TailwindClassInput, TailwindPreview } from "tailwind-class-input";
 
 function StyleEditor() {
-  const [classes, setClasses] = React.useState('bg-blue-500 text-white rounded-lg p-4');
+  const [classes, setClasses] = React.useState(
+    "bg-blue-500 text-white rounded-lg p-4",
+  );
 
   return (
     <>
@@ -158,8 +168,8 @@ function StyleEditor() {
 ## React Admin
 
 ```tsx
-import { useInput } from 'react-admin';
-import { createTailwindClassField } from 'tailwind-class-input';
+import { useInput } from "react-admin";
+import { createTailwindClassField } from "tailwind-class-input";
 
 // Create once at module level
 const TailwindClassField = createTailwindClassField(useInput);
@@ -172,7 +182,7 @@ function MyEdit() {
         <TailwindClassField
           source="className"
           label="Tailwind Classes"
-          presets={['padding', 'margin', 'borderRadius']}
+          presets={["padding", "margin", "borderRadius"]}
           fullWidth
         />
       </SimpleForm>
@@ -185,41 +195,41 @@ function MyEdit() {
 
 ## Props — TailwindClassInput
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | — | Controlled class string |
-| `defaultValue` | `string` | `''` | Uncontrolled initial value |
-| `onChange` | `(v: string) => void` | — | Called on every change |
-| `name` | `string` | — | Hidden input name for form binding |
-| `label` | `ReactNode` | — | Floating label |
-| `helperText` | `ReactNode` | — | Text below input |
-| `error` | `boolean` | `false` | Error state |
-| `required` | `boolean` | `false` | Required marker |
-| `disabled` | `boolean` | `false` | Disabled |
-| `readOnly` | `boolean` | `false` | Read-only |
-| `placeholder` | `string` | `'Search or type a class…'` | Input placeholder |
-| `classList` | `string[]` | Full TW list | Custom class list |
-| `extraFriendlyLabels` | `Record<string, string>` | — | Additional/override friendly labels |
-| `hideFriendlyLabels` | `boolean` | `false` | Hide all friendly labels |
-| `maxSuggestions` | `number` | `14` | Max dropdown items |
-| `matchMode` | `'includes' \| 'startsWith' \| 'fuzzy'` | `'includes'` | Filtering mode |
-| `presets` | `true \| PresetGroupKey[]` | — | Enable preset groups |
-| `sx` | `SxProps<Theme>` | — | MUI sx on root `FormControl` |
-| `variant` | `'outlined' \| 'filled' \| 'standard'` | `'outlined'` | MUI variant |
-| `size` | `'small' \| 'medium'` | `'medium'` | MUI size |
-| `fullWidth` | `boolean` | `true` | Full-width layout |
+| Prop                  | Type                                    | Default                     | Description                         |
+| --------------------- | --------------------------------------- | --------------------------- | ----------------------------------- |
+| `value`               | `string`                                | —                           | Controlled class string             |
+| `defaultValue`        | `string`                                | `''`                        | Uncontrolled initial value          |
+| `onChange`            | `(v: string) => void`                   | —                           | Called on every change              |
+| `name`                | `string`                                | —                           | Hidden input name for form binding  |
+| `label`               | `ReactNode`                             | —                           | Floating label                      |
+| `helperText`          | `ReactNode`                             | —                           | Text below input                    |
+| `error`               | `boolean`                               | `false`                     | Error state                         |
+| `required`            | `boolean`                               | `false`                     | Required marker                     |
+| `disabled`            | `boolean`                               | `false`                     | Disabled                            |
+| `readOnly`            | `boolean`                               | `false`                     | Read-only                           |
+| `placeholder`         | `string`                                | `'Search or type a class…'` | Input placeholder                   |
+| `classList`           | `string[]`                              | Full TW list                | Custom class list                   |
+| `extraFriendlyLabels` | `Record<string, string>`                | —                           | Additional/override friendly labels |
+| `hideFriendlyLabels`  | `boolean`                               | `false`                     | Hide all friendly labels            |
+| `maxSuggestions`      | `number`                                | `14`                        | Max dropdown items                  |
+| `matchMode`           | `'includes' \| 'startsWith' \| 'fuzzy'` | `'includes'`                | Filtering mode                      |
+| `presets`             | `true \| PresetGroupKey[]`              | —                           | Enable preset groups                |
+| `sx`                  | `SxProps<Theme>`                        | —                           | MUI sx on root `FormControl`        |
+| `variant`             | `'outlined' \| 'filled' \| 'standard'`  | `'outlined'`                | MUI variant                         |
+| `size`                | `'small' \| 'medium'`                   | `'medium'`                  | MUI size                            |
+| `fullWidth`           | `boolean`                               | `true`                      | Full-width layout                   |
 
 ---
 
 ## Props — TailwindPreview
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `classes` | `string` | `''` | Classes applied to each direct child |
-| `children` | `ReactNode` | Placeholder div | Content |
-| `sx` | `SxProps<Theme>` | — | MUI sx on wrapper `Box` |
-| `wrapChildren` | `boolean` | `false` | Wrap each child in a `<div>` before applying |
-| `emptyState` | `ReactNode` | — | Shown when `classes` is empty |
+| Prop           | Type             | Default         | Description                                  |
+| -------------- | ---------------- | --------------- | -------------------------------------------- |
+| `classes`      | `string`         | `''`            | Classes applied to each direct child         |
+| `children`     | `ReactNode`      | Placeholder div | Content                                      |
+| `sx`           | `SxProps<Theme>` | —               | MUI sx on wrapper `Box`                      |
+| `wrapChildren` | `boolean`        | `false`         | Wrap each child in a `<div>` before applying |
+| `emptyState`   | `ReactNode`      | —               | Shown when `classes` is empty                |
 
 ---
 
@@ -240,13 +250,13 @@ npm run build     # rm -rf dist && vite build
 
 ## Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Space` / `Enter` | Add current token or highlighted suggestion |
-| `Tab` | Accept first (or highlighted) suggestion |
-| `↑` / `↓` | Navigate dropdown |
-| `Escape` | Close dropdown |
-| `Backspace` (empty) | Remove last chip |
+| Key                 | Action                                      |
+| ------------------- | ------------------------------------------- |
+| `Space` / `Enter`   | Add current token or highlighted suggestion |
+| `Tab`               | Accept first (or highlighted) suggestion    |
+| `↑` / `↓`           | Navigate dropdown                           |
+| `Escape`            | Close dropdown                              |
+| `Backspace` (empty) | Remove last chip                            |
 
 ---
 
